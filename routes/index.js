@@ -15,5 +15,8 @@ router
   .get('/make_namecard', (req, res) => {
     res.render('make_namecard')
   })
+  .get('/input', (req, res) => {
+    res.render('input')
+  })
 
 module.exports = router;
