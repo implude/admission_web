@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>#IMPLUDE</title>
+</head>
+<style>
+    html {
+        margin: 0;
+        padding: 0
+    }
+
+    .section {
+        background-color: #000000;
+        flex-direction: column;
+        display: flex;
+    }
+
+    .link {
+        flex-direction: column;
+        display: flex;
+        height: 50%;
+    }
+
+    .l1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+        margin: auto;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: white;
+    }
+
+    .button {
+        background: linear-gradient(92.94deg, #3A89FF 0%, #A4C5F7 100%);
+        border-radius: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 58px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button a {
+        width: 80%;
+        margin: auto;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: #000000;
+    }
+</style>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div style="height:80%; justify-content: space-between; display: flex;flex-direction: column;">
+                <div class="link">
+                    <div class="l1">더 많은 소개를 보고싶다면?</div>
+                    <div class="l1"><span style="color: #FFB628;">아래 버튼</span>을 클릭해주세요!</div>
+                </div>
+                <div class="button"><a href="https://implude22.notion.site/IMPLUDE-35c4347eabe9462cb9a61f178b05cfb1">소개
+                        보러가기<span style="float:right">></span></a></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new fullpage('#fullpage', {
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true
+        });
+    </script>
+</body>
+
+</html>

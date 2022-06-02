@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>#IMPLUDE</title>
+</head>
+<style>
+    html {
+        margin: 0;
+        padding: 0
+    }
+
+    .section {
+        background-color: #000000;
+        flex-direction: column;
+    }
+
+    .link {
+        flex-direction: column;
+        display: flex;
+        margin: auto;
+        height: 50%;
+    }
+
+    .l1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+        margin: auto;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: white;
+    }
+
+    #comment {
+        color: #FF5A5A;
+    }
+</style>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div class="link">
+                <div class="l1">#IMPLUDE는</div>
+                <div class="l1 " id="comment">상상한대로 만드는</div>
+                <div class="l1">동아리에요!</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new fullpage('#fullpage', {
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true
+        });
+        let comment = [
+            'Flutter 개발을 배우는',
+            '안드로이드 개발을 하는',
+            `여러 프로젝트를 <br> 진행해볼 수 있는`,
+            '무려 7년차!!',
+            '상상한대로 만드는']
+
+        let i = 0
+        let t = 0
+        let colors = ["#D3FF56", "#8CFF98", "#B880FF", "#53D6FF", "#FF5A5A"]
+        setInterval(() => {
+            if (t == 2) {
+                clearInterval();
+                window.location.href = '/deinfo'
+            }
+            else {
+                if (i == 5) {
+                    i = i % 5
+                    t++;
+                }
+                document.getElementById('comment').innerHTML = comment[i]
+                document.getElementById('comment').style.color = colors[i];
+                i++
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

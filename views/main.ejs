@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css">
+
+    <title>#IMPLUDE</title>
+</head>
+<style>
+    html {
+        margin: 0;
+        padding: 0
+    }
+
+    .section {
+        background-color: #000000;
+        flex-direction: column;
+    }
+
+    .title {
+        margin: auto;
+        text-align: center;
+    }
+
+    .t1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        color: #8CFF98;
+    }
+
+    .t2 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 48px;
+        color: #1328F4;
+    }
+
+    .link {
+        flex-direction: column;
+        display: flex;
+        margin: auto;
+        height: 50%;
+    }
+
+    .l1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 28px;
+        color: white;
+        text-align: center;
+        margin: auto;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: white;
+    }
+</style>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div class="title">
+                <div class="t1">WELCOME TO</div>
+                <div class="t2">#IMPLUDE !</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="link">
+                <div class="l1"><a href="/info">#IMPLUDE 소개 보러 가기</a></div>
+                <div class="l1"><a href="/make_namecard">온라인 명함 만들러 가기</a></div>
+                <div class="l1"><a
+                        href="https://docs.google.com/forms/d/1m7xA_gAKw9FYCwXKFlvHC_UY4jk7epYFli_r4fgquqE/edit#responses">설문조사
+                        참여하기</a></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new fullpage('#fullpage', {
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true
+        });
+    </script>
+</body>
+
+</html>
