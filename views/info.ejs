@@ -88,11 +88,14 @@
                     i = i % 5
                     t++;
                 }
+                $("#comment").fadeOut(1)
+
                 document.getElementById('comment').innerHTML = comment[i]
                 document.getElementById('comment').style.color = colors[i];
+                $("#comment").fadeIn()
                 i++
             }
-        }, 1000);
+        }, 1200);
 
     </script>
 </body>

@@ -95,8 +95,7 @@
         flex-direction: column;
     }
 
-    .button a {
-        width: 80%;
+    .button button {
         margin: auto;
         font-family: 'Inter';
         font-style: normal;
@@ -104,6 +103,14 @@
         font-size: 18px;
         color: white;
         text-decoration: none;
+        border-style: none;
+        background-color: transparent;
+        width: 80%;
+        text-align: left;
+    }
+
+    .checked {
+        border: 3px solid rgb(0, 255, 0)
     }
 </style>
 
@@ -112,45 +119,66 @@
         <a href="/"><img src="../public/images/Home_Page.png" style="position:absolute; top:0;margin:20px" width="40px"
                 height="40px" alt=""></a>
         <div class="input">
-            <label for="" class="labels">이름을 입력해주세요.</label>
-            <input type="text" class="inputs" style="font-size: 1.6rem;">
-            <br><br>
-            <label for="" class="labels">전화번호를 입력해주세요.</label>
-            <div style="display: flex; color:white;height:2.5rem">
-                <input type="tel" class="inputs tel" maxlength="3">
-                <span class="dash">-</span>
-                <input type="tel" class="inputs tel" maxlength="4">
-                <span class="dash">-</span>
-                <input type="tel" class="inputs tel" maxlength="4">
-            </div>
-            <br><br>
-            <label for="" class="labels">이메일을 입력해주세요.</label>
-            <input type="email" class="inputs">
-            <br><br>
-            <label for="" class="labels">주소를 입력해주세요.(집, 학교, 회사 등)</label>
-            <input type="text" class="inputs">
-            <br><br>
-            <label for="" class="labels">원하시는 동아리 로고를 선택해주세요!</label>
-            <div class="clubs">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-            </div>
-            <div class="clubs">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-            </div>
-            <br><br>
+            <form action="/result" method="post">
+                <label for="" class="labels">이름을 입력해주세요.</label>
+                <input type="text" class="inputs" style="font-size: 1.6rem;" name="name">
+                <br><br>
+                <label for="" class="labels">전화번호를 입력해주세요.</label>
+                <div style="display: flex; color:white;height:2.5rem">
+                    <input type="tel" class="inputs tel" maxlength="3" name="p1">
+                    <span class="dash">-</span>
+                    <input type="tel" class="inputs tel" maxlength="4" name="p2">
+                    <span class="dash">-</span>
+                    <input type="tel" class="inputs tel" maxlength="4" name="p3">
+                </div>
+                <br><br>
+                <label for="" class="labels">이메일을 입력해주세요.</label>
+                <input type="email" class="inputs" name="email">
+                <br><br>
+                <label for="" class="labels">주소를 입력해주세요.(집, 학교, 회사 등)</label>
+                <input type="text" class="inputs" name="address">
+                <br><br>
+                <label for="" class="labels">원하시는 동아리 로고를 선택해주세요!</label>
+                <input style="display:none" class="circle" name="circle">
+                <div class="clubs">
+                    <img src="../public/images/logo.png" alt="" onclick="checked(this)" class="imga" name="implude">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                </div>
+                <div class="clubs">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                    <img src="" alt="" onclick="checked(this)" class="imga">
+                </div>
+                <br><br>
 
-            <div class="button"><a href="/input">위 정보로 명함 만들기<span style="float:right">></span></a></div>
-
+                <div class="button"><button type="submit">위 정보로 명함 만들기<span style="float:right">></span></button></div>
+            </form>
         </div>
     </div>
+    <script>
+        let i = false;
+
+        function checked(e) {
+            if (i == true) {
+                for (let i = 0; i < document.querySelectorAll('.imga').length; i++) {
+                    document.querySelectorAll('.imga')[i].classList.remove('checked');
+                    document.querySelectorAll('.imga')[i].removeAttribute('select');
+                    document.querySelector('.circle').innerHTML = '';
+                }
+            } else {
+                i = true
+            }
+            e.className += ' checked';
+            e.setAttribute('select', "true");
+            document.querySelector('.circle').value = e.getAttribute('name')
+            console.log(document.querySelector('.circle').value)
+        }
+    </script>
 </body>
 
 </html>

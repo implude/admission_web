@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>#IMPLUDE</title>
+</head>
+<style>
+    html {
+        margin: 0;
+        padding: 0
+    }
+
+    .section {
+        background-color: #000000;
+        flex-direction: column;
+        display: flex;
+    }
+
+    .name_card {
+        width: 55%;
+        background-color: white;
+        margin: auto;
+        height: 70%;
+        border-radius: 10px;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: white;
+    }
+
+    .button {
+        background: linear-gradient(93.51deg, #97C1FF -17.09%, #0075FF 21.44%, #97C1FF 120.62%);
+        border-radius: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 58px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button div {
+        width: 80%;
+        margin: auto;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: white;
+    }
+
+    .result_msg {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: white;
+        text-align: center;
+    }
+
+    .link {
+        flex-direction: column;
+        display: flex;
+        height: 80%;
+    }
+
+    .link div {
+        margin: auto
+    }
+
+    .l1 {
+        margin: auto;
+        margin-left: 0;
+        color: #535353;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .l2 {
+        color: #000000;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    #name {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    #category {
+        color: #535353;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+</style>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <a href="/"><img src="../public/images/Home_Page.png" style="position:absolute; top:0;margin:20px"
+                    width="40px" height="40px" alt=""></a>
+
+            <div style="height:80%; justify-content: space-between; display: flex; flex-direction: column;">
+                <div class="link">
+                    <div class="name_card">
+                        <div style="height:45%;display: flex;flex-direction: column;">
+                            <img src="../public/images/logo.png" width="100px" height="100px" alt="" style="margin:auto"
+                                id="logo">
+                            <div id="name">
+                                <%= name %>
+                            </div>
+                            <div id="category">
+                                <%= circle %>
+                            </div>
+                        </div>
+                        <div style="height:40%;width:80%;display: flex;
+                        flex-direction: column;">
+                            <label for="" class="l1">전화번호</label>
+                            <label id="tel" class="l2">
+                                <%= p1 %> - <%= p2 %> - <%= p3 %>
+                            </label>
+                            <label for="" class="l1">이메일</label>
+                            <label id="email" class="l2">
+                                <%= email %>
+                            </label>
+                            <label for="" class="l1">주소</label>
+                            <label id="address" class="l2">
+                                <%= address %>
+                            </label>
+                        </div>
+                        <div style="height:15%;width:90%;display: flex;flex-direction: column;">
+                            <p style="font-size : 1px;margin:auto">본 명함은 디미고 입학설명회, 창업동아리 <br>
+                                임플루드부스에서 제작되었습니다.</p>
+                        </div>
+                    </div>
+                    <div class="result_msg">명함이 완성되었어요!</div>
+                    <div class="result_msg">아래 버튼을 눌러 <span style="color: #33F95E;">공유</span>해보세요!</div>
+                </div>
+                <div class="button">
+                    <div onclick="partShot()">명함 공유하기<span style="float:right">></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        window.onload = () => {
+            console.log(window.location.href)
+        }
+        new fullpage('#fullpage', {
+            //options here
+            autoScrolling: true,
+            scrollHorizontally: true
+        });
+        function partShot() {    //특정부분 스크린샷    
+            html2canvas(document.querySelector('.name_card'))    //id container 부분만 스크린샷        
+                .then(canvas => {
+                    canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]))
+                });
+            toastr.success('클립보드에 복사가 되었습니다!');
+            try {
+                navigator.share({
+                    title: "한국디지털미디어고등학교 창업동아리 임플루드",
+                    text: "온라인 명함을 만들어봐요!",
+                    url: "https://implude.kro.kr",
+                });
+                console.log("공유 성공");
+            } catch (e) {
+                console.log("공유 실패");
+            }
+            setTimeout(() => {
+                toastr.success("수고하셨습니다! 꼭 디미고에서 다시만나요~")
+            }, 5000)
+            setTimeout(() => {
+                window.location.href = '/deinfo'
+            }, 7000);
+        }
+    </script>
+</body>
+
+</html>
